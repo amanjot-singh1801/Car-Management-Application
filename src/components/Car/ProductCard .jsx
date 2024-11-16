@@ -11,7 +11,7 @@ const ProductCard = ({ product }) => {
 
   return (
     <div
-      className="border rounded-lg shadow-md p-4 flex flex-col items-center cursor-pointer"
+      className="border m-4 rounded-lg shadow-md p-4 flex flex-col items-center cursor-pointer"
       onClick={handleCardClick} // Adding onClick here for navigation
     >
       <img
@@ -20,7 +20,9 @@ const ProductCard = ({ product }) => {
         className="w-full h-64 object-cover rounded-lg mb-4"
       />
       <h3 className="text-lg font-semibold mb-2">{product.title}</h3>
-      <p className="text-gray-600">{product.description}</p>
+      <p className="text-gray-600"> {product.description.split(" ").length > 8
+      ? `${product.description.split(" ").slice(0, 8).join(" ")}...`
+      : product.description}</p>
     </div>
   );
 };

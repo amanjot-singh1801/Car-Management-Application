@@ -3,10 +3,10 @@ import CarForm from '../components/Car/CarForm'
 
 const CreateProduct = () => {
   return (
-    <div>
-      <CarForm/>
-    </div>
-  )
+      <div>
+        <CarForm />
+      </div>
+  );
 }
 
 export default CreateProduct

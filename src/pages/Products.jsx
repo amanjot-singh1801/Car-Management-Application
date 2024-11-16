@@ -44,31 +44,31 @@ const Products = () => {
   }
 
   return (
-    <div className="p-5">
-      <div className='flex justify-around'>
-        <div className="flex items-center mb-5">
+    <div >
+      <div className='flex justify-around border-b-2 h-full shadow-sm py-3 shadow-slate-500 w-full items-center bg-gray-200'>
+        <button
+        className='bg-blue-500 px-7 py-2 rounded-md text-white font-bold hover:bg-blue-600 transition-all hover:shadow-md hover:shadow-slate-800 duration-300' 
+        onClick={() => navigate('/createProduct')}
+        >
+          Add products
+        </button>
+        <div className="flex items-center">
           <input
             type="text"
             value={searchKeyword}
             onChange={(e) => setSearchKeyword(e.target.value)}
             placeholder="Search Here "
-            className="flex-1 px-4 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring focus:ring-blue-300 shadow-md shadow-slate-700"
+            className="flex px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-blue-300 shadow-md shadow-slate-700"
           />
           <FaSearch  onClick={handleSearch} className='ml-4'/>
         </div>
-
         <div>
             <button className='bg-blue-500 px-8 py-2 rounded-md text-white font-bold hover:bg-blue-600 transition-all hover:shadow-md hover:shadow-slate-800 duration-300' onClick={(e)=>handleLogout(e)}>Logout</button>
         </div>
       </div>
-      <button
-        className="px-10 py-2 bg-blue-400 rounded-md mb-5"
-        onClick={() => navigate('/createProduct')}
-      >
-        Click to add products
-      </button>
+      
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center">
         {products.length > 0 ? (
           products.map((product) => (
             <ProductCard key={product._id} product={product} />

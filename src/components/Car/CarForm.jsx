@@ -57,7 +57,7 @@ const CarForm = () => {
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6 bg-white shadow-md rounded-md">
+    <div className="max-w-2xl mx-auto mt-5 p-6 bg-white shadow-lg rounded-md">
       <h2 className="text-2xl font-bold mb-6 text-center">Add New Car</h2>
       <form onSubmit={handleSubmit}>
         {/* Title */}

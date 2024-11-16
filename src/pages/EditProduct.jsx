@@ -3,6 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 // import { getProductById, updateProduct } from '../services/operations/carAPI';
 import { useSelector } from 'react-redux';
 import { getProductById, updateProduct } from '../services/operations/carAPI';
+import toast from 'react-hot-toast';
 
 const EditProduct = () => {
   const { productId } = useParams();
@@ -53,9 +54,14 @@ const EditProduct = () => {
     alert("No changes Done.");
     return;
   }
-    if (images.length === 0 && newImages.length === 0) {
+    if (images.length === 0 && newImages.length === 0 ) {
       alert("Please upload at least one picture.");
       return;
+    }
+
+    if(images.length + newImages.length > 10){
+      toast.error("Upload 10 pictures only");
+      return 
     }
     const formData = new FormData();
     formData.append('title', title);
