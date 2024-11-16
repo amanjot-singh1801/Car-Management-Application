@@ -45,7 +45,7 @@ const Login = () => {
                 value={email}
                 type="email"
                 placeholder="Email"
-                className="w-full px-4 py-2 text-bold borderborder-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 font-bold borderborder-gray-400 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
@@ -57,14 +57,14 @@ const Login = () => {
                 value={pwd}
                 type="password"
                 placeholder="Password"
-                className="w-full px-4 py-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 font-bold border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
 
             {/* Sign Up Link */}
             <p className="text-gray-400">
               Don't have an account?{" "}
-              <Link to="/signup" className="text-blue-500 hover:underline">
+              <Link to="/" className="text-blue-500 hover:underline">
                 Sign Up
               </Link>
             </p>

@@ -15,7 +15,6 @@ function App() {
   return (
     <div className="App">
         <Routes>
-          
           <Route path='/' element={<OpenRoute> <SignUp /> </OpenRoute>} />
           <Route path='/login' element={<OpenRoute> <Login /> </OpenRoute>} />
           <Route path='/products' element={<PrivateRoute> <Products /> </PrivateRoute>} />
