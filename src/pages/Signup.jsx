@@ -16,50 +16,63 @@ const SignUp = () => {
   }
 
   return (
-    <div>
-
-        <div className='flex items-center justify-between h-screen bg-slate-900'>
-            <div className='w-[38%] flex-col justify-center pl-20 rightForm '>
-                {/* <div>
-                    <img className='w-[300px] flex justify-center' src="/logo.png" alt="" />
-                </div> */}
-                <form onSubmit={submitForm} className='mt-[10px]' action="">
-                    
-                    <div className="inputBox">
-                    <input required onChange={(e)=>{setName(e.target.value)}} value={name} type="text" placeholder='Name'/>
-                    </div>
-
-                    <div className="inputBox">
-                    <input required onChange={(e)=>{setEmail(e.target.value)}} value={email} type="email" placeholder='Email'/>
-                    </div>
-
-                    <div className="inputBox">
-                    <input required onChange={(e)=>{setPwd(e.target.value)}} value={pwd} type="password" placeholder='Password'/>
-                    </div>
-
-                    <div className="inputBox">
-                    <input required onChange={(e)=>{setconfirmPassword(e.target.value)}} value={confirmPassword} type="password" placeholder='confirm Password'/>
-                    </div>
-
-                    <p className='text-[gray]'>Already have an account <Link to="/login" className='text-[#00AEEF]'>login</Link></p>
-
-
-                    <button className="px-5 py-2 border-none bg-blue-500 rounded-md text-center text-xl w-full cursor-pointer mt-[20px]">Sign Up</button>
-                </form>
-            </div>
-            
-
-            <div className="hidden md:flex md:w-1/2 lg:w-[55%] items-center justify-end">
-                <img
-                className="h-screen w-screen object-cover"
-                src="sideImage.jpg"
-                alt="Auth Background"
-                />
-            </div>
-
-        </div>
+  
+<div className="flex items-center justify-between h-screen bg-slate-800">
+  <div className="w-full md:w-[38%] flex flex-col justify-center pl-8 md:pl-20">
+    <form onSubmit={submitForm} className="w-full mt-8">
       
-    </div>
+      {/* Email Input */}
+      <div className="mb-4">
+        <input
+          required
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          type="email"
+          placeholder="Email"
+          className="w-full px-4 py-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Password Input */}
+      <div className="mb-4">
+        <input
+          required
+          onChange={(e) => setPwd(e.target.value)}
+          value={pwd}
+          type="password"
+          placeholder="Password"
+          className="w-full px-4 py-2 text-base border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+        />
+      </div>
+
+      {/* Sign Up Link */}
+      <p className="text-gray-400">
+        Don't have an account?{' '}
+        <Link to="/" className="text-blue-500 hover:underline">
+          Sign Up
+        </Link>
+      </p>
+
+      {/* Submit Button */}
+      <button
+        type="submit"
+        className="w-full px-5 py-2 mt-6 text-xl text-white bg-blue-500 rounded-md hover:bg-blue-600 transition-all"
+      >
+        Login
+      </button>
+    </form>
+  </div>
+
+  {/* Right Side Image */}
+  <div className="hidden md:flex md:w-1/2 lg:w-[55%] items-center justify-end">
+    <img
+      className="h-screen w-screen object-cover"
+      src="sideImage.jpg"
+      alt="Auth Background"
+    />
+  </div>
+</div>
+
   )
 }
 

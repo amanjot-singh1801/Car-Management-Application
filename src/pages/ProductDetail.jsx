@@ -77,14 +77,14 @@ const ProductDetail = () => {
         <DeleteModal setIsDeleteModelShow={setIsDeleteModelShow} productId={productId} />
       )}
 
-      {/* Image Slider Modal */}
+
       {sliderImage && (
         <div className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-75 z-50">
           <div className="relative max-w-4xl">
             <img
               src={sliderImage}
               alt="Slider"
-              className="w-full h-auto rounded-lg shadow-lg"
+              className="w-full h-[700px] rounded-lg shadow-lg"
             />
             <button
               onClick={() => setSliderImage(null)}

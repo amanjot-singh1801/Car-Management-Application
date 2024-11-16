@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getProductById, updateProduct } from '../services/operations/carAPI';
 import toast from 'react-hot-toast';
 
+
 const EditProduct = () => {
   const { productId } = useParams();
   const navigate = useNavigate();
@@ -36,8 +37,6 @@ const EditProduct = () => {
     setImages(images.filter((_, i) => i !== index));
   };
 
-  
-
   const handleNewImageAdd = (e) => {
     const files = Array.from(e.target.files);
     setNewImages([...newImages, ...files]);
@@ -55,13 +54,13 @@ const EditProduct = () => {
     return;
   }
     if (images.length === 0 && newImages.length === 0 ) {
-      alert("Please upload at least one picture.");
+      toast.error("Please upload at least one picture.");
       return;
     }
 
     if(images.length + newImages.length > 10){
       toast.error("Upload 10 pictures only");
-      return 
+      return;
     }
     const formData = new FormData();
     formData.append('title', title);
@@ -69,7 +68,7 @@ const EditProduct = () => {
     formData.append('tags', JSON.stringify(tags));
 
     // Append remaining images
-    images.forEach((image) => formData.append('existingImages', image));
+    formData.append("existingImages", JSON.stringify(images));
     newImages.forEach((image) => formData.append('newImages', image));
 
 
@@ -134,7 +133,7 @@ const EditProduct = () => {
                   onClick={() => handleImageRemove(index)}
                   className="absolute top-1 right-1 bg-red-500 text-white text-xs px-2 py-1 rounded-full"
                 >
-                  ×
+                 x
                 </button>
               </div>
             ))}

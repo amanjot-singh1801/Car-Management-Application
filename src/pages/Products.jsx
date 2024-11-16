@@ -45,7 +45,7 @@ const Products = () => {
 
   return (
     <div >
-      <div className='flex justify-around border-b-2 h-full shadow-sm py-3 shadow-slate-500 w-full items-center bg-gray-200'>
+      <div className='flex flex-col md:flex-row lg:flex-row justify-around gap-2  border-b-2 h-full shadow-sm py-3 shadow-slate-500 w-full items-center bg-gray-200'>
         <button
         className='bg-blue-500 px-7 py-2 rounded-md text-white font-bold hover:bg-blue-600 transition-all hover:shadow-md hover:shadow-slate-800 duration-300' 
         onClick={() => navigate('/createProduct')}

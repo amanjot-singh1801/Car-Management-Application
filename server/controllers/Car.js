@@ -163,13 +163,15 @@ exports.deleteProduct = async (req, res) => {
 exports.updateProduct = async(req,res)=>{
   try {
     const { productId } = req.params;
-    const { title, description, tags } = req.body;
+    const { title, description, tags,existingImages } = req.body;
 
-    const existingImages = req.body.existingImages || [];
+    const existingImagesArray = JSON.parse(existingImages || '[]');
+    console.log("Existing Images: ", existingImagesArray);
+
     const files = req.files?.newImages ? (Array.isArray(req.files.newImages) ? req.files.newImages : [req.files.newImages]) : [];
     console.log("New Images: ",files);
 
-    const updatedImages = [...existingImages];
+    const updatedImages = [...existingImagesArray];
 
     // Upload new images to a storage service if applicable
     if(files.length > 0){
