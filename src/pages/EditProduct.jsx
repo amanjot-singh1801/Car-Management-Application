@@ -45,6 +45,14 @@ const EditProduct = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    const isChanged = title !== product.title || description !== product.description ||
+                      JSON.stringify(tags) !== JSON.stringify(product.tags) ||
+                      newImages.length > 0 || images.length !== product.images.length;
+
+  if (!isChanged) {
+    alert("No changes Done.");
+    return;
+  }
     if (images.length === 0 && newImages.length === 0) {
       alert("Please upload at least one picture.");
       return;
