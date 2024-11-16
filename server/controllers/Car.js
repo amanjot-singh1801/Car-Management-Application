@@ -176,14 +176,13 @@ exports.updateProduct = async(req,res)=>{
     const { title, description, tags } = req.body;
 
     const existingImages = req.body.existingImages || [];
-    console.log("Existing Images: ",existingImages);
-    const files = [req.files?.newImages] || [];
+    const files = req.files?.newImages ? (Array.isArray(req.files.newImages) ? req.files.newImages : [req.files.newImages]) : [];
     console.log("New Images: ",files);
 
     const updatedImages = [...existingImages];
 
     // Upload new images to a storage service if applicable
-    if(files){
+    if(files.length > 0){
       for (const file of files) {
         const uploadedImage = await uploadImageToCloudinary(file, process.env.FOLDER_NAME);
         updatedImages.push(uploadedImage.secure_url); 
