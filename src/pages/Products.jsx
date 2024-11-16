@@ -68,15 +68,20 @@ const Products = () => {
       </div>
       
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 justify-center items-center">
-        {products.length > 0 ? (
-          products.map((product) => (
+      <div className="min-h-[calc(100vh-64px)] flex justify-center items-center">
+      {products.length > 0 ? (
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {products.map((product) => (
             <ProductCard key={product._id} product={product} />
-          ))
-        ) : (
-          <p>No products found.</p>
-        )}
-      </div>
+          ))}
+        </div>
+      ) : (
+        <p className="text-center text-lg font-semibold text-white px-5 py-2 rounded-md shadow-md shadow-slate-700 bg-blue-500 ">
+          No products found.
+        </p>
+      )}
+    </div>
+      
     </div>
   );
 };

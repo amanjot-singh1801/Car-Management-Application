@@ -78,18 +78,8 @@ exports.createProduct = async (req,res) =>{
 exports.listProducts = async (req, res) => {
     try {
         const userId = req.user.id;
-
-        // Query the database for cars associated with the user
         const cars = await Car.find({ user: userId });
 
-        if (!cars || cars.length === 0) {
-            return res.status(404).json({
-                success: false,
-                message: "No cars found for the user",
-            });
-        }
-
-        // Return the list of cars
         return res.status(200).json({
             success: true,
             message: "Successfully retrieved all products",

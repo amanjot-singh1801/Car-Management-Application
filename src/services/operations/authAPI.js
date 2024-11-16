@@ -35,7 +35,7 @@ export async function login(email, password) {
     try {
       const LOGIN_API = BASE_URL + "/login";
       const response = await apiConnector("POST", LOGIN_API, { email, password });
-  
+        
       if (!response.data.success) {
         toast.error(response.data.message);
         throw new Error(response.data.message);
@@ -47,6 +47,7 @@ export async function login(email, password) {
       return response.data; // Return the response data
     } catch (error) {
       console.error("Error during login:", error);
+      toast.error(error.response.data.message);
       toast.dismiss(toastId);
       throw error;
     }
